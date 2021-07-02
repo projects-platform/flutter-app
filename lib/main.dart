@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/demo/custom_navigation.dart';
+import 'package:flutter_app/demo/custom_route.dart';
 import './movie/list.dart';
 
 void main() => runApp(MyApp());
@@ -57,14 +59,23 @@ class AccountDrawer extends StatelessWidget {
             trailing: Icon(Icons.account_box),
           ),
           ListTile(
+            title: Text('自定义导航'),
+            trailing: Icon(Icons.menu),
+            onTap: () {
+              // Navigator.push(context,
+              //     CustomRoute(builder: (BuildContext ctx) {
+              //   return CustomNavigation();
+              // }));
+
+              Navigator.of(context).push(CustomRoute(CustomNavigation()));
+            },
+          ),
+          ListTile(
             title: Text('系统设置'),
             trailing: Icon(Icons.settings),
           ),
           Divider(),
-          ListTile(
-            title: Text('退出登录'),
-            trailing: Icon(Icons.exit_to_app),
-          )
+          ListTile(title: Text('退出登录'), trailing: Icon(Icons.exit_to_app))
         ],
       ),
     );
